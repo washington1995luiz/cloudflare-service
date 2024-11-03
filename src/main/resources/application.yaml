@@ -1,0 +1,35 @@
+server:
+  port: ${SERVER_PORT:8080}
+env-variable:
+  cloudflare:
+    url: ${CLOUDFLARE_URL}
+    access-key: ${CLOUDFLARE_ACCESS_KEY}
+    secret: ${CLOUDFLARE_SECRET}
+    region: ${CLOUDFLARE_REGION}
+    bucket-name: ${CLOUDFLARE_BUCKET_NAME}
+  rabbitmq:
+    topic-exchange: ${RABBITMQ_TOPIC_EXCHANGE}
+    queue-delete: ${RABBITMQ_QUEUE_DELETE}
+    binding-delete: ${RABBITMQ_BINDING_DELETE}
+  redis:
+    key-code-file: ${REDIS_KEY_CODE_FILE}
+    host: ${REDIS_URL}
+    port: ${REDIS_PORT}
+  delete:
+    delay: ${DELETE_DELAY}
+  local-zone-id: ${LOCAL_ZONE_ID}
+  cors:
+    originPatterns: ${CORS_ORIGIN_PATTERNS}
+spring:
+  application:
+    name: cloudflare-service
+  rabbitmq:
+    host: ${RABBITMQ_URL}
+    port: ${RABBITMQ_PORT}
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+  redis:
+    host: ${REDIS_URL}
+    port: ${REDIS_PORT}
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
